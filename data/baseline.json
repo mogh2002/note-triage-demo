@@ -1,0 +1,20 @@
+{
+  "project": "Sunrise Clinics booking portal (made-up example)",
+  "requirements": [
+    {"id": "REQ-01", "screen": "Login", "text": "A patient logs in with a mobile number and a one-time code sent by SMS. The code expires after 5 minutes."},
+    {"id": "REQ-02", "screen": "Search doctors", "text": "The patient can search doctors by specialty and by clinic. Results show name, specialty, clinic and the next free slot."},
+    {"id": "REQ-03", "screen": "Book appointment", "text": "The patient picks a free slot and confirms. The system books it and shows a booking number in the format SC-YYYY-NNNNN."},
+    {"id": "REQ-04", "screen": "Book appointment", "text": "A patient may hold at most 3 future bookings at the same time."},
+    {"id": "REQ-05", "screen": "My bookings", "text": "The patient sees all future bookings sorted by date, nearest first."},
+    {"id": "REQ-06", "screen": "Cancel booking", "text": "The patient can cancel a booking up to 24 hours before the appointment. After that, the cancel button is hidden."},
+    {"id": "REQ-07", "screen": "Notifications", "text": "The system sends an SMS confirmation right after booking and a reminder SMS 24 hours before the appointment."},
+    {"id": "REQ-08", "screen": "Doctor schedule (back office)", "text": "Clinic staff set each doctor's weekly working hours. Slots are 20 minutes long."},
+    {"id": "REQ-09", "screen": "Doctor schedule (back office)", "text": "Staff can block a slot (e.g. doctor on leave). Blocked slots do not appear to patients."},
+    {"id": "REQ-10", "screen": "Reports (back office)", "text": "A daily report lists bookings per clinic and per doctor, exportable to Excel."},
+    {"id": "REQ-11", "screen": "All screens", "text": "All patient screens are available in Arabic (default) and English."}
+  ],
+  "known_issues": [
+    {"id": "SC-101", "title": "Booking number shows the wrong year on bookings made on 31 December"},
+    {"id": "SC-114", "title": "Search results are not sorted when filtering by clinic"}
+  ]
+}

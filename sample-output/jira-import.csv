@@ -1,0 +1,19 @@
+﻿Summary,Issue Type,Priority,Description,Labels
+"The SMS code still works after 10 minutes, it should expire.",Bug,Medium,"UAT note 1: The SMS code still works after 10 minutes, it should expire.
+Baseline: REQ-01
+Why: Keyword match with REQ-01 (offline rules, check by hand).",uat bug
+"On the search screen the label says ""Speciality"", please change it to ""Specialty"".",Task,Low,"UAT note 3: On the search screen the label says ""Speciality"", please change it to ""Specialty"".
+Baseline: REQ-02
+Why: Keyword match with REQ-02 (offline rules, check by hand).",uat tweak
+I booked a 4th appointment and the system allowed it.,Bug,Medium,"UAT note 4: I booked a 4th appointment and the system allowed it.
+Baseline: REQ-03
+Why: Keyword match with REQ-03 (offline rules, check by hand).",uat bug
+In My bookings the list is sorted oldest first.,Bug,Medium,"UAT note 5: In My bookings the list is sorted oldest first.
+Baseline: REQ-05
+Why: Keyword match with REQ-05 (offline rules, check by hand).",uat bug
+Reminder SMS did not arrive for tomorrow's appointment.,Bug,Medium,"UAT note 8: Reminder SMS did not arrive for tomorrow's appointment.
+Baseline: REQ-07
+Why: Keyword match with REQ-07 (offline rules, check by hand).",uat bug
+The English version of the booking confirmation has an Arabic sentence at the bottom.,Bug,Medium,"UAT note 11: The English version of the booking confirmation has an Arabic sentence at the bottom.
+Baseline: REQ-07
+Why: Keyword match with REQ-07 (offline rules, check by hand).",uat bug

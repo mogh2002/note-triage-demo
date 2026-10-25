@@ -192,6 +192,18 @@ def cmd_render(args):
     print(f"Wrote {out}/jira-import.csv, {len(crs)} CR drafts, summary.md")
 
 
+def cmd_score(args):
+    with args.expected.open(encoding="utf-8-sig") as f:
+        expected = {r["n"]: r for r in csv.DictReader(f)}
+    with args.proposals.open(encoding="utf-8-sig") as f:
+        rows = list(csv.DictReader(f))
+    misses = [r for r in rows if r["proposed_class"] != expected[r["n"]]["expected_class"]]
+    cited = sum(r["baseline_id"] == expected[r["n"]]["expected_baseline_id"] for r in rows)
+    print(f"Class correct: {len(rows) - len(misses)}/{len(rows)}, baseline ID correct: {cited}/{len(rows)}")
+    for r in misses:
+        print(f"  note {r['n']}: proposed {r['proposed_class']}, expected {expected[r['n']]['expected_class']}")
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -206,6 +218,10 @@ def main():
     b.add_argument("baseline", type=Path)
     b.add_argument("-o", "--out", type=Path, default=Path("out"))
     b.set_defaults(func=cmd_render)
+    c = sub.add_parser("score", help="compare proposals with known answers")
+    c.add_argument("proposals", type=Path)
+    c.add_argument("expected", type=Path)
+    c.set_defaults(func=cmd_score)
     args = p.parse_args()
     args.func(args)
 

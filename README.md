@@ -40,7 +40,29 @@ python triage.py propose data/uat-notes.md data/baseline.json -o out/proposals.c
 python triage.py render out/proposals.csv data/baseline.json -o out/
 ```
 
-[`sample-output/`](sample-output/) shows the result of the offline mode with two analyst corrections, so you can see the outputs without running anything.
+You can see the outputs without running anything:
+- [`sample-output-live/`](sample-output-live/): Claude's proposals, accepted as they are.
+- [`sample-output-offline/`](sample-output-offline/): the keyword rules, with two analyst corrections in the "decision" column.
+
+## Results on the sample notes
+
+[`data/expected.csv`](data/expected.csv) holds the right answer for each note. Check any run against it with:
+
+```bash
+python triage.py score out/proposals.csv data/expected.csv
+```
+
+| Mode | Class correct | Requirement cited correctly |
+|---|---|---|
+| Claude (`claude-opus-5-5`) | **12 / 12** | **12 / 12** |
+| Offline keyword rules | 10 / 12 | 9 / 12 |
+
+The two notes the keyword rules got wrong are the interesting ones:
+
+- *"Can we also let patients log in with their national ID?"* Rules: Needs clarification (it ends with "?"). Claude: **Change request**, because REQ-01 only allows mobile login. Its impact note named the login screen, the authentication backend, a likely national-ID integration, Arabic/English texts and a privacy review.
+- *"The cancel button disappeared 20 hours before the appointment. Is that correct?"* Rules: Needs clarification. Claude: **Not an issue**, because REQ-06 hides the button inside 24 hours, so the system is right.
+
+Twelve notes is a demo, not a benchmark. With real data, I'd score a few hundred past notes before trusting the model, and keep the human decision step either way.
 
 ## Design choices
 
@@ -53,7 +75,7 @@ python triage.py render out/proposals.csv data/baseline.json -o out/
 
 ## What I'd add for real use
 
-An evaluation set of past notes with known answers (to measure accuracy before trusting the model), batch processing for large sessions, and Arabic notes (the model handles them; the offline rules don't).
+A larger evaluation set from real past notes, batch processing for large sessions, and Arabic notes (the model handles them; the offline rules don't).
 
 ## Background
 

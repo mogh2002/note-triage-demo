@@ -1,0 +1,19 @@
+﻿Summary,Issue Type,Priority,Description,Labels
+"The SMS code still works after 10 minutes, it should expire.",Bug,Medium,"UAT note 1: The SMS code still works after 10 minutes, it should expire.
+Baseline: REQ-01
+Why: REQ-01 says the SMS one-time code expires after 5 minutes, but the code still works after 10 minutes, so the system does not meet the requirement.",uat bug
+"On the search screen the label says ""Speciality"", please change it to ""Specialty"".",Task,Low,"UAT note 3: On the search screen the label says ""Speciality"", please change it to ""Specialty"".
+Baseline: REQ-02
+Why: REQ-02 requires search by specialty, and correcting the label spelling from ""Speciality"" to ""Specialty"" is a small wording change within that requirement's intent.",uat tweak
+I booked a 4th appointment and the system allowed it.,Bug,Medium,"UAT note 4: I booked a 4th appointment and the system allowed it.
+Baseline: REQ-04
+Why: REQ-04 limits a patient to at most 3 future bookings at the same time, yet the system accepted a 4th booking, so it does not meet the requirement.",uat bug
+In My bookings the list is sorted oldest first.,Bug,Medium,"UAT note 5: In My bookings the list is sorted oldest first.
+Baseline: REQ-05
+Why: REQ-05 requires future bookings sorted by date with the nearest first, but the note reports the list is sorted oldest first, which does not match the requirement.",uat bug
+Reminder SMS did not arrive for tomorrow's appointment.,Bug,Medium,"UAT note 8: Reminder SMS did not arrive for tomorrow's appointment.
+Baseline: REQ-07
+Why: REQ-07 requires a reminder SMS 24 hours before the appointment, and the tester reports none arrived for tomorrow's appointment; confirm the appointment is now within 24 hours when reproducing.",uat bug
+The English version of the booking confirmation has an Arabic sentence at the bottom.,Bug,Medium,"UAT note 11: The English version of the booking confirmation has an Arabic sentence at the bottom.
+Baseline: REQ-11
+Why: REQ-11 requires all patient screens to be available in English, so an untranslated Arabic sentence on the English booking confirmation means the system does not meet the requirement.",uat bug

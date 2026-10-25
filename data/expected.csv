@@ -1,0 +1,13 @@
+n,expected_class,expected_baseline_id
+1,Bug,REQ-01
+2,Change request,REQ-01
+3,Tweak,REQ-02
+4,Bug,REQ-04
+5,Bug,REQ-05
+6,Change request,REQ-03
+7,Not an issue,REQ-06
+8,Bug,REQ-07
+9,Duplicate,SC-114
+10,Change request,REQ-10
+11,Bug,REQ-11
+12,Needs clarification,REQ-09
